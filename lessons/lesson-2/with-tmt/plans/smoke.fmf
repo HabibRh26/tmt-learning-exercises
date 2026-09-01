@@ -1,0 +1,8 @@
+summary: Smoke tests
+discover:
+    how: fmf
+provision:
+    how: container
+    image: fedora:44
+execute:
+    how: tmt

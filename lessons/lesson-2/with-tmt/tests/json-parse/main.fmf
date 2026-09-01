@@ -1,0 +1,5 @@
+summary: Parse JSON with jq
+test: ./test.sh
+duration: 2m
+require:
+ - jq

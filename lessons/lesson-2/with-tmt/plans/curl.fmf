@@ -1,0 +1,10 @@
+summary: Curl tests
+discover:
+    how: fmf
+    test:
+      - /tests/curl-check
+provision:
+    how: container
+    image: fedora:latest
+execute:
+    how: tmt

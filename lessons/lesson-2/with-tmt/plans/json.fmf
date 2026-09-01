@@ -1,0 +1,10 @@
+summary: JSON tests
+discover:
+    how: fmf
+    test:
+      - /tests/json-parse
+provision:
+    how: container
+    image: fedora:latest
+execute:
+    how: tmt
