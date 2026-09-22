@@ -217,7 +217,7 @@ The `prepare-check` test fails — `/tmp/test-workspace/ready.txt` doesn't exist
 
 ---
 
-## Fix it with `prepare` in the plan
+## Task 7- Fix it with `prepare` in the plan
 
 Edit `plans/basic.fmf` to add a `prepare` step:
 
