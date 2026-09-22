@@ -206,7 +206,7 @@ duration: 2m
 **Run it and watch it fail:**
 
 ```bash
-tmt run -vv plan --name /plans/smoke test --name tests/prepare-check
+tmt run -vv
 ```
 see the log- 
 ```bash
