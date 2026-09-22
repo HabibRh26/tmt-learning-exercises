@@ -1,0 +1,17 @@
+summary: Run lesson2-task6 tests in a container
+discover:
+    how: fmf
+provision:
+    how: container
+    image: fedora:latest
+prepare:
+  - how: install
+    package:
+      - tree
+  - how: shell
+    script: |
+        mkdir -p /tmp/test-workspace
+        echo "prepared at $(date)" > /tmp/test-workspace/ready.txt
+execute:
+    how: tmt
+
