@@ -1,0 +1,4 @@
+summary: Verify that the prepare step ran correctly
+test: ./test.sh
+duration: 2m
+
