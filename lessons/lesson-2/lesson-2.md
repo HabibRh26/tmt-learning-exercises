@@ -173,10 +173,18 @@ Write `tests/prepare-check/test.sh`:
 ```bash
 #!/bin/bash
 echo "Checking if prepare step created the workspace..."
-test -f /tmp/test-workspace/ready.txt && echo "PASS: workspace ready" || exit 1
+if ! test -f /tmp/test-workspace/ready.txt; then
+    echo "FAIL: /tmp/test-workspace/ready.txt not found"
+    exit 1
+fi
+echo "PASS: workspace ready"
 
 echo "Checking if tree is available (installed by prepare)..."
-tree --version > /dev/null && echo "PASS: tree installed" || exit 1
+if ! tree --version > /dev/null 2>&1; then
+    echo "FAIL: tree is not installed"
+    exit 1
+fi
+echo "PASS: tree installed"
 
 echo "All checks passed."
 ```
@@ -198,14 +206,18 @@ duration: 2m
 **Run it and watch it fail:**
 
 ```bash
-tmt run -vv
+tmt run -vv plan --name /plans/smoke test --name tests/prepare-check
+```
+see the log- 
+```bash
+tmt run --last report -vvv
 ```
 
 The `prepare-check` test fails — `/tmp/test-workspace/ready.txt` doesn't exist and `tree` isn't installed. The test expected something that nobody set up.
 
 ---
 
-## Task 7 — Fix it with `prepare` in the plan
+## Fix it with `prepare` in the plan
 
 Edit `plans/basic.fmf` to add a `prepare` step:
 
