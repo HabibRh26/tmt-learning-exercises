@@ -1,6 +1,9 @@
 summary: Run basic tests in a container
 discover:
     how: fmf
+    test:
+     - /tests/smoke
+     - /tests/prepare-check
 provision:
     how: container
     image: fedora:latest
