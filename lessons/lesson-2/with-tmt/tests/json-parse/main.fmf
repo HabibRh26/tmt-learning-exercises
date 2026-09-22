@@ -3,3 +3,5 @@ test: ./test.sh
 duration: 2m
 require:
  - jq
+recommend:
+ - vim-enhanced
